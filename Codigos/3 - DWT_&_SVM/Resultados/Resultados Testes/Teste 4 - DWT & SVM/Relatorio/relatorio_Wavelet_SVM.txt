@@ -1,0 +1,55 @@
+================================================================================
+RELATÓRIO - WAVELET + SVM
+================================================================================
+
+CONFIGURAÇÕES
+Dataset: Signal_Feature
+Wavelet: db4
+Nível: 6
+Limite correlação: 0.95
+Características Fisher: 14
+SVM Kernel: rbf
+SVM C: 10
+SVM Gamma: scale
+K-Fold: 5
+Bootstrap: 1000
+
+MÉTRICAS FINAIS
+
+Accuracy: 1.0000
+Precision Macro: 1.0000
+Recall Macro: 1.0000
+F1 Macro: 1.0000
+MCC: 1.0000
+Cohen's Kappa: 1.0000
+ROC-AUC Macro: 1.0000
+Log Loss: 0.0583
+
+Tempo total: 13.51 segundos
+Tempo total: 0.23 minutos
+
+MATRIZ DE CONFUSÃO
+
+[[100   0   0   0   0   0   0]
+ [  0 100   0   0   0   0   0]
+ [  0   0 100   0   0   0   0]
+ [  0   0   0 100   0   0   0]
+ [  0   0   0   0 100   0   0]
+ [  0   0   0   0   0 100   0]
+ [  0   0   0   0   0   0 100]]
+
+RELATÓRIO POR CLASSE
+
+              precision    recall  f1-score   support
+
+        capc       1.00      1.00      1.00       100
+         har       1.00      1.00      1.00       100
+      normal       1.00      1.00      1.00       100
+       notch       1.00      1.00      1.00       100
+         sag       1.00      1.00      1.00       100
+       spike       1.00      1.00      1.00       100
+       swell       1.00      1.00      1.00       100
+
+    accuracy                           1.00       700
+   macro avg       1.00      1.00      1.00       700
+weighted avg       1.00      1.00      1.00       700

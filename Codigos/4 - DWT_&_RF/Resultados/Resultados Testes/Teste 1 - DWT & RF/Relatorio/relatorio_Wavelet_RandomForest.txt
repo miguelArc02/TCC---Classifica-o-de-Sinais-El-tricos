@@ -1,0 +1,58 @@
+================================================================================
+RELATORIO - WAVELET + RANDOM FOREST
+================================================================================
+
+ORIGEM DOS DADOS
+Signal_Feature: UTILIZADO
+Dataset_Train: NAO UTILIZADO
+Dataset_train_class: NAO UTILIZADO
+index_total: NAO UTILIZADO
+
+CONFIGURACOES
+Wavelet: db4
+Nivel Wavelet: 6
+Frequencia amostragem: 15360 Hz
+Frequencia fundamental: 60 Hz
+Limite correlacao: 0.95
+Caracteristicas Fisher: 14
+Random Forest estimators: 100
+K-Fold: 5
+Random state: 42
+
+METRICAS FINAIS
+Accuracy: 1.000000
+Precision Macro: 1.000000
+Recall Macro: 1.000000
+F1 Macro: 1.000000
+MCC: 1.000000
+Cohen's Kappa: 1.000000
+ROC-AUC Macro: 1.000000
+Log Loss: 0.013068
+
+Tempo total: 13.48 segundos
+
+MATRIZ DE CONFUSAO
+
+[[100   0   0   0   0   0   0]
+ [  0 100   0   0   0   0   0]
+ [  0   0 100   0   0   0   0]
+ [  0   0   0 100   0   0   0]
+ [  0   0   0   0 100   0   0]
+ [  0   0   0   0   0 100   0]
+ [  0   0   0   0   0   0 100]]
+
+RELATORIO POR CLASSE
+
+              precision    recall  f1-score   support
+
+        capc       1.00      1.00      1.00       100
+         har       1.00      1.00      1.00       100
+      normal       1.00      1.00      1.00       100
+       notch       1.00      1.00      1.00       100
+         sag       1.00      1.00      1.00       100
+       spike       1.00      1.00      1.00       100
+       swell       1.00      1.00      1.00       100
+
+    accuracy                           1.00       700
+   macro avg       1.00      1.00      1.00       700
+weighted avg       1.00      1.00      1.00       700

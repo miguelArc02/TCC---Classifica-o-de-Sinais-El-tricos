@@ -1,0 +1,31 @@
+================================================================================
+AUDITORIA DE VAZAMENTO DE DADOS
+================================================================================
+
+ORIGEM DOS DADOS
+Pasta utilizada:
+C:\Users\migue\Downloads\01 - Power_Quality_Disturbance_Dataset-master\01 - Power_Quality_Disturbance_Dataset-master\Banco_de_Dados\CSV\Signal_Feature
+
+Signal_Feature utilizado: SIM
+Dataset_Train utilizado: NAO
+Dataset_train_class utilizado: NAO
+index_total utilizado: NAO
+
+TRANSFORMACOES
+DWT: deterministica e sem ajuste de parametros
+Filtro de correlacao: ajustado somente no treino
+Fisher: calculado somente no treino
+StandardScaler: fit somente no treino
+Random Forest: treinado somente no treino
+
+VALIDACAO
+Numero de folds: 5
+Random state: 42
+
+PREDICOES OOF
+Sinais totais: 700
+Predicoes OOF: 700
+
+RESULTADO DA AUDITORIA
+Nenhuma intersecao entre treino e teste foi detectada.
+As etapas supervisionadas foram ajustadas somente com os dados de treinamento de cada fold.

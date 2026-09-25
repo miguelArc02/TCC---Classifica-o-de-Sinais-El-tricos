@@ -1,0 +1,61 @@
+CLASSIFICADOR DE DISTÚRBIOS DE QUALIDADE DE ENERGIA
+===========================================================================
+
+PIPELINE
+FFT -> Correlação -> Fisher Discriminant Ratio -> Normalização -> SVM -> Stratified K-Fold
+
+CONFIGURAÇÕES
+Frequência de amostragem: 15360.0 Hz
+Amostras por sinal: 2560
+Limite de correlação: 0.95
+Características Fisher: 14
+SVM kernel: rbf
+SVM C: 10
+Folds: 5
+
+MÉDIA ± DESVIO-PADRÃO
+Accuracy: 0.8371 ± 0.0137
+Precision Macro: 0.8269 ± 0.0172
+Recall Macro: 0.8371 ± 0.0137
+F1 Macro: 0.8276 ± 0.0185
+
+MÉTRICAS GLOBAIS OUT-OF-FOLD
+Accuracy: 0.8371
+Precision Macro: 0.8281
+Recall Macro: 0.8371
+F1 Macro: 0.8317
+
+TEMPO E EMISSÃO DE CO2
+Tempo: 41.0023 segundos
+Tempo: 0.6834 minutos
+CO2: 0.00007836 kg
+CO2: 0.0784 g
+
+CLASSIFICATION REPORT
+===========================================================================
+
+              precision    recall  f1-score   support
+
+        capc     1.0000    1.0000    1.0000       100
+         har     1.0000    1.0000    1.0000       100
+      normal     0.8621    1.0000    0.9259       100
+       notch     1.0000    1.0000    1.0000       100
+         sag     0.4615    0.4200    0.4398       100
+       spike     1.0000    1.0000    1.0000       100
+       swell     0.4731    0.4400    0.4560       100
+
+    accuracy                         0.8371       700
+   macro avg     0.8281    0.8371    0.8317       700
+weighted avg     0.8281    0.8371    0.8317       700
+
+
+MATRIZ DE CONFUSÃO
+===========================================================================
+
+[[100   0   0   0   0   0   0]
+ [  0 100   0   0   0   0   0]
+ [  0   0 100   0   0   0   0]
+ [  0   0   0 100   0   0   0]
+ [  0   0   9   0  42   0  49]
+ [  0   0   0   0   0 100   0]
+ [  0   0   7   0  49   0  44]]

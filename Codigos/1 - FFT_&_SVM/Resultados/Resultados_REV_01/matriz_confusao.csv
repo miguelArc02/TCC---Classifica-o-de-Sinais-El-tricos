@@ -1,0 +1,8 @@
+﻿,capc,har,normal,notch,sag,spike,swell
+capc,100,0,0,0,0,0,0
+har,0,100,0,0,0,0,0
+normal,0,0,100,0,0,0,0
+notch,0,0,0,100,0,0,0
+sag,0,0,9,0,42,0,49
+spike,0,0,0,0,0,100,0
+swell,0,0,7,0,49,0,44
