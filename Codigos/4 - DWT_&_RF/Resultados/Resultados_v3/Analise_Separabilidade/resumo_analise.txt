@@ -1,0 +1,60 @@
+{
+  "separabilidade_56": {
+    "escopo": "global",
+    "silhouette": 0.21949841794154054,
+    "distancia_intra_media": 6.0907691919248315,
+    "distancia_inter_media": 10.699848577358802,
+    "razao_inter_intra": 1.7567319069559733
+  },
+  "separabilidade_14_exploratoria": {
+    "escopo": "global",
+    "silhouette": 0.39740355318162623,
+    "distancia_intra_media": 1.9817015690859452,
+    "distancia_inter_media": 5.317617230204852,
+    "razao_inter_intra": 2.6833592470018526
+  },
+  "pca_56": {
+    "PCA_var_exp_PC1_PC2": 0.45764391480562283
+  },
+  "pca_14": {
+    "PCA_var_exp_PC1_PC2": 0.6367107892513935
+  },
+  "classificadores": [
+    {
+      "modelo": "RandomForest",
+      "accuracy": 1.0,
+      "f1_macro": 1.0,
+      "mcc": 1.0,
+      "erros": 0
+    },
+    {
+      "modelo": "SVM_linear",
+      "accuracy": 1.0,
+      "f1_macro": 1.0,
+      "mcc": 1.0,
+      "erros": 0
+    },
+    {
+      "modelo": "SVM_RBF",
+      "accuracy": 0.9871428571428571,
+      "f1_macro": 0.9872279634089558,
+      "mcc": 0.9850938229272976,
+      "erros": 9
+    },
+    {
+      "modelo": "kNN",
+      "accuracy": 0.9842857142857143,
+      "f1_macro": 0.9844948022499044,
+      "mcc": 0.9818256417838879,
+      "erros": 11
+    },
+    {
+      "modelo": "LogReg",
+      "accuracy": 0.9942857142857143,
+      "f1_macro": 0.9943128766658178,
+      "mcc": 0.9933617155020988,
+      "erros": 4
+    }
+  ],
+  "AVISO": "A seleção global de 14 features é usada somente para visualização e nunca para reportar accuracy OOF."
+}

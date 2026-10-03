@@ -1,0 +1,2 @@
+Modelo,Dataset,Dataset_Train_Utilizado,Emissao_kg_CO2,Emissao_g_CO2,Tempo_s,Accuracy,F1_Macro,MCC,ROC_AUC_Macro
+Wavelet + Random Forest,Signal_Feature,False,5.262409447523723e-05,0.05262409447523723,12.848691900027916,1.0,1.0,1.0,1.0

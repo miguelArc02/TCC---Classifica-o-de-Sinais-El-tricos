@@ -1,0 +1,2 @@
+Modelo,Emissao_kg_CO2,Emissao_g_CO2,Tempo_s,Accuracy,F1_Macro,MCC,ROC_AUC_Macro
+Wavelet + SVM,7.473888209912576e-05,0.07473888209912576,14.157795200007968,1.0,1.0,1.0,1.0
