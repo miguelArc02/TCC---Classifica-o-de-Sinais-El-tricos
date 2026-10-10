@@ -25,7 +25,7 @@ Cohen's Kappa: 1.0000
 ROC-AUC Macro: 1.0000
 Log Loss: 0.0583
 
-Tempo total: 13.68 segundos
+Tempo total: 13.63 segundos
 Tempo total: 0.23 minutos
 
 MATRIZ DE CONFUSÃO

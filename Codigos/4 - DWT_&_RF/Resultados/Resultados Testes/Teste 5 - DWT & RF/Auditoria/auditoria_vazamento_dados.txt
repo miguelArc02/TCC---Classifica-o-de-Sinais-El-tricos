@@ -4,7 +4,7 @@ AUDITORIA DE VAZAMENTO DE DADOS
 
 ORIGEM DOS DADOS
 Pasta utilizada:
-C:\Users\migue\OneDrive\Área de Trabalho\01 - Power_Quality_Disturbance_Dataset-master\01 - Power_Quality_Disturbance_Dataset-master\Banco_de_Dados\CSV\Signal_Feature
+C:\TCC\01 - Power_Quality_Disturbance_Dataset-master\Banco_de_Dados\CSV\Signal_Feature
 
 Signal_Feature utilizado: SIM
 Dataset_Train utilizado: NAO

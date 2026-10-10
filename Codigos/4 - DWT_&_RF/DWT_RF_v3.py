@@ -273,7 +273,7 @@ LIMITE_CORRELACAO = 0.95
 # RANDOM FOREST
 # -----------------------------------------------------------------------------
 
-N_ESTIMATORS = 100
+N_ESTIMATORS = 300
 
 RANDOM_STATE = 42
 

@@ -21,7 +21,7 @@ Cohen_Kappa         : 0.828333
 ROC_AUC_macro       : 0.975425
 Log_Loss            : 0.270352
 
-Tempo total: 17.81 s
+Tempo total: 18.07 s
 Tempo total: 0.30 min
 
 

@@ -15,7 +15,7 @@ Frequencia amostragem: 15360 Hz
 Frequencia fundamental: 60 Hz
 Limite correlacao: 0.95
 Caracteristicas Fisher: 14
-Random Forest estimators: 100
+Random Forest estimators: 300
 K-Fold: 5
 Random state: 42
 
@@ -27,9 +27,9 @@ F1 Macro: 1.000000
 MCC: 1.000000
 Cohen's Kappa: 1.000000
 ROC-AUC Macro: 1.000000
-Log Loss: 0.013068
+Log Loss: 0.012912
 
-Tempo total: 12.81 segundos
+Tempo total: 14.61 segundos
 
 MATRIZ DE CONFUSAO
 
