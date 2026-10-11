@@ -46,7 +46,10 @@ datasets= []
 for metodo in metodos:
   dataset = []
   for teste in testes:
-    dataset.append(ler_csvs(teste, metodo))
+    var = ""
+    if metodo == "DWT_RF":
+        var = ".2"
+    dataset.append(ler_csvs(teste + var, metodo))
   
   medias = calcular_medias(dataset)
   datasets.append(medias)

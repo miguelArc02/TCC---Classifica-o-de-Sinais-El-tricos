@@ -149,7 +149,7 @@ PASTA_RESULTADOS = (
     Path(__file__).resolve().parent
     / "Resultados"
     / "Resultados Testes"
-    / "Teste 5 - DWT & RF"
+    / "Teste 5.2 - DWT & RF"
 )
 
 

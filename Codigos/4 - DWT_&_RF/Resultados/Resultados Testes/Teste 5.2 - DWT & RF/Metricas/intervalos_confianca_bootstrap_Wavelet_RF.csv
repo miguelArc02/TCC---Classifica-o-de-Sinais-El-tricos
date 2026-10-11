@@ -1,0 +1,7 @@
+Metrica,IC_95_inferior,IC_95_superior
+Accuracy,1.0,1.0
+Precision Macro,1.0,1.0
+Recall Macro,1.0,1.0
+F1 Macro,1.0,1.0
+MCC,1.0,1.0
+Cohen's Kappa,1.0,1.0
