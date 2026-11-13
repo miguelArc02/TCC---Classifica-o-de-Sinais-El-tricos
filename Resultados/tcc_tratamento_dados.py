@@ -47,8 +47,10 @@ for metodo in metodos:
   dataset = []
   for teste in testes:
     var = ""
-    if metodo == "FFT_SVM" or metodo == "FFT_RF" or metodo == "DWT_RF":
+    if metodo == "FFT_SVM" or metodo == "FFT_RF" or metodo == "DWT_SVM":
         var = ".2"
+    if metodo == "DWT_RF":
+        var = ".3"
     dataset.append(ler_csvs(teste + var, metodo))
   
   medias = calcular_medias(dataset)

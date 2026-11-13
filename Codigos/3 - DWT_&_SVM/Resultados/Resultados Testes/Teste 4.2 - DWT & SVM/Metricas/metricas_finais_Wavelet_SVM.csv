@@ -1,0 +1,2 @@
+Accuracy,Precision_macro,Recall_macro,F1_macro,MCC,Cohen_Kappa,ROC_AUC_macro,Log_Loss
+1.0,1.0,1.0,1.0,1.0,1.0,1.0,0.058318273407139014
