@@ -90,7 +90,7 @@ warnings.filterwarnings("ignore")
 BASE_DIR = Path(__file__).resolve().parents[2]
 
 DATASET_DIR = BASE_DIR / "Banco_de_Dados" / "CSV" / "Signal_Feature"
-OUTPUT_DIR = Path(__file__).resolve().parent / "Resultados" / "Resultados Testes" / "Teste 4 - FFT & SVM"
+OUTPUT_DIR = Path(__file__).resolve().parent / "Resultados" / "Resultados Testes" / "Teste 10 - FFT & SVM"
 
 
 # -----------------------------------------------------------------------------
@@ -2061,6 +2061,7 @@ def main():
     tracker = EmissionsTracker(
         project_name="FFT_SVM_PQD",
         output_dir=DIR_CODECARBON,
+        measure_power_secs=1,
         output_file="emissions.csv",
         log_level="error"
     )

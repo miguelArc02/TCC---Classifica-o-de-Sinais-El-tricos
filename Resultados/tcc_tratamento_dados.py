@@ -47,7 +47,7 @@ for metodo in metodos:
   dataset = []
   for teste in testes:
     var = ""
-    if metodo == "DWT_RF":
+    if metodo == "FFT_SVM" or metodo == "FFT_RF" or metodo == "DWT_RF":
         var = ".2"
     dataset.append(ler_csvs(teste + var, metodo))
   
@@ -66,7 +66,7 @@ tabela_comparativa = pd.DataFrame(datasets).rename(columns={
 
 tabela_comparativa.insert(0, "Método", [metodo.replace("_", " + ") for metodo in metodos])
 
-tabela_comparativa.to_csv("Métricas.csv", index=False)
+tabela_comparativa.to_csv("Métricas_atualizadas.csv", index=False)
 
 # for a in tabelas_FFT_SVM:
 #   print(a)

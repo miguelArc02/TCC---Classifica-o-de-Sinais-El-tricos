@@ -1,6 +1,6 @@
 # =============================================================================
 # CLASSIFICADOR DE DISTÚRBIOS DE QUALIDADE DE ENERGIA
-# FFT + CORRELAÇÃO + FISHER + RANDOM FOREST + K-FOLD
+# FFT + CORRELAÇÃO + FISHER + PADRONIZAÇÃO + RANDOM FOREST + K-FOLD
 #
 # Autor: Rafael Bruno da Silva
 #
@@ -14,14 +14,18 @@
 #   2. Transformada Rápida de Fourier (FFT)
 #   3. Filtro de correlação
 #   4. Fisher Discriminant Ratio
-#   5. Random Forest
-#   6. Validação cruzada estratificada 5-Fold
-#   7. Métricas de desempenho
-#   8. Matriz de confusão
-#   9. Curva ROC
-#  10. Curva Precision-Recall
-#  11. Intervalos de confiança por bootstrap
-#  12. Estimativa de emissão de CO2 com CodeCarbon
+#   5. Padronização Z-score das características selecionadas
+#   6. Random Forest
+#   7. Validação cruzada estratificada 5-Fold
+#   8. Métricas de desempenho
+#   9. Matriz de confusão
+#  10. Curva ROC
+#  11. Curva Precision-Recall
+#  12. Intervalos de confiança por bootstrap
+#  13. Estimativa de emissão de CO2 com CodeCarbon
+#
+# Em cada fold, correlação, Fisher e StandardScaler são ajustados somente
+# no treino. O teste usa as mesmas colunas e os parâmetros desse treino.
 #
 # =============================================================================
 
@@ -34,9 +38,6 @@ import os
 import time
 import warnings
 from pathlib import Path
-import sys
-sys.path.append(str(Path(__file__).resolve().parents[1]))
-from roc_padrao import salvar_roc_macro
 
 import numpy as np
 import pandas as pd
@@ -47,7 +48,7 @@ from sklearn.ensemble import RandomForestClassifier
 
 from sklearn.model_selection import StratifiedKFold
 
-from sklearn.preprocessing import label_binarize
+from sklearn.preprocessing import StandardScaler, label_binarize
 from sklearn.metrics import (
     accuracy_score,
     precision_score,
@@ -110,8 +111,8 @@ PASTA_DATASET = (
 PASTA_RESULTADOS = (
     Path(__file__).resolve().parent
     / "Resultados"
-    / "Resultados Testes"
-    / "Teste 5 - FFT & RF"
+    # Saídas da versão padronizada, separadas dos experimentos anteriores.
+    / "Resultados_Padronizacao5"
 )
 
 
@@ -551,8 +552,8 @@ def selecionar_fisher(
 #
 # ou seja, 300 árvores.
 #
-# n_jobs=-1:
-# utiliza todos os núcleos disponíveis do processador.
+# n_jobs=1:
+# utiliza um único núcleo do processador.
 #
 # =============================================================================
 
@@ -564,7 +565,7 @@ def criar_random_forest():
 
         random_state=RANDOM_STATE,
 
-        n_jobs=-1,
+        n_jobs=1,
 
         # Critério utilizado para divisão das árvores.
         criterion="gini",
@@ -1290,13 +1291,28 @@ def executar_pipeline():
         )
 
         # ---------------------------------------------------------------------
+        # PADRONIZAÇÃO Z-SCORE APÓS A SELEÇÃO DE FISHER
+        # ---------------------------------------------------------------------
+        # Um novo scaler é ajustado em cada fold, exclusivamente no treino.
+        # O teste recebe a mesma transformação, sem recalcular média/desvio.
+        scaler = StandardScaler()
+
+        X_train_scaled = scaler.fit_transform(
+            X_train_final
+        )
+
+        X_test_scaled = scaler.transform(
+            X_test_final
+        )
+
+        # ---------------------------------------------------------------------
         # RANDOM FOREST
         # ---------------------------------------------------------------------
 
         modelo = criar_random_forest()
 
         modelo.fit(
-            X_train_final,
+            X_train_scaled,
             y_train
         )
 
@@ -1305,11 +1321,11 @@ def executar_pipeline():
         # ---------------------------------------------------------------------
 
         y_pred = modelo.predict(
-            X_test_final
+            X_test_scaled
         )
 
         y_prob = modelo.predict_proba(
-            X_test_final
+            X_test_scaled
         )
 
         # ---------------------------------------------------------------------
@@ -1408,15 +1424,10 @@ def executar_pipeline():
     # 21. CURVA ROC
     # =============================================================================
 
-    arquivo_roc = salvar_roc_macro(
+    arquivo_roc = salvar_curva_roc(
         y_true_global,
         y_prob_global,
-        classes,
-        nome="FFT + Random Forest",
-        caminho_png=os.path.join(
-            PASTA_ROC,
-            "curva_ROC_FFT_RandomForest.png"
-        )
+        classes
     )
 
     # =============================================================================
@@ -1669,7 +1680,12 @@ def executar_pipeline():
         )
 
         f.write(
-            f"Características Fisher: {N_FEATURES_FISHER}\n\n"
+            f"Características Fisher: {N_FEATURES_FISHER}\n"
+        )
+
+        f.write(
+            "Padronização: StandardScaler (Z-score) após Fisher; "
+            "fit somente no treino de cada fold e transform no teste.\n\n"
         )
 
         f.write(
